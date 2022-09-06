@@ -15,11 +15,10 @@ print(offset_bins)
 [os.popen('cp {} {}/{}'.format(e[1], bin_dir,
                                e[1].split('/')[-1])) for e in offset_bins]
 
-offset_bins = {path.split('/')[-1][:-4]:(int(offset, 16), path.split('/')[-1][:-4]) for  offset, path in offset_bins}
+offset_bins = {path.split('/')[-1][:-4]:(int(offset, 16), path.split('/')[-1]) for  offset, path in offset_bins}
 
 print(offset_bins)
 manifest = """{{  "name": "Lifeband update",  "builds": [    {{      "chipFamily": "ESP32",      "improv": false,      "parts": [        {{ "path": "{0}", "offset": {1} }},        {{ "path": "{2}", "offset": {3} }},        {{ "path": "{4}", "offset": {5} }},        {{ "path": "{6}", "offset": {7} }}      ]    }}  ]}}""".format(offset_bins['boot_app0'][1], offset_bins['boot_app0'][0],                                                                                                                                                                                                                                                                      offset_bins['firmware'][1], offset_bins['firmware'][0],                                                                                                                                                                                                                                                offset_bins['bootloader_qio_80m'][1], offset_bins['bootloader_qio_80m'][0],                                                                                                                                                                                                                                                            offset_bins['partitions'][1], offset_bins['partitions'][0])
 with open('manifest.json', 'w') as f:
     f.writelines(manifest)
 
-print(os.path.exists('bin/partitions.bin'))

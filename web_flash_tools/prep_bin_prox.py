@@ -7,7 +7,7 @@ firmware_dir = "/home/yanis/Documents/PlatformIO/Projects/Proximity_FIRMEWARE/"
 
 
 
-command = '"/home/yanis/.platformio/penv/bin/python" "/home/yanis/.platformio/packages/tool-esptoolpy/esptool.py" --chip esp32 --port "/dev/ttyUSB0" --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size 4MB 0x1000 /home/yanis/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/bin/bootloader_qio_80m.bin 0x8000 /home/yanis/Documents/PlatformIO/Projects/FIRMEWARE/.pio/build/esp32cam/partitions.bin 0xe000 /home/yanis/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin 0x10000 .pio/build/esp32cam/firmware.bin'
+command = '"/home/yanis/.platformio/penv/bin/python" "/home/yanis/.platformio/packages/tool-esptoolpy/esptool.py" --chip esp32 --port "/dev/ttyUSB0" --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size 4MB 0x1000 /home/yanis/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/bin/bootloader_qio_80m.bin 0x8000 /home/yanis/Documents/PlatformIO/Projects/Proximity_FIRMEWARE/.pio/build/esp32cam/partitions.bin 0xe000 /home/yanis/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin 0x10000 .pio/build/esp32cam/firmware.bin'
 
 offset_bins = [e.split(' ') for e in re.findall("0[xX][0-9a-fA-F]+ [\/.\w-]+?(?=\.).bin", command)]
 offset_bins[-1][-1] = firmware_dir + offset_bins[-1][-1]

@@ -1,0 +1,1 @@
+{  "name": "Lifeband Firmware V3",  "builds": [    {      "chipFamily": "ESP32",      "improv": false,      "parts": [        { "path": "v3_boot_app0.bin", "offset": 57344 },        { "path": "v3_firmware.bin", "offset": 65536 },        { "path": "v3_bootloader_qio_80m.bin", "offset": 4096 },        { "path": "v3_partitions.bin", "offset": 32768 }      ]    }  ]}
